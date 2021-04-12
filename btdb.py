@@ -2,7 +2,7 @@ from requests import get
 from random import choice
 from bs4 import BeautifulSoup
 
-class btdb_eu(object):
+class btdb_eu():
     url = 'https://btdb.eu/'
     name = 'Btdb.eu'
 
