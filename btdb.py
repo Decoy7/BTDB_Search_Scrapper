@@ -1,12 +1,14 @@
 from requests import get
 from random import choice
 from bs4 import BeautifulSoup
+import json
+
 
 class btdb_eu():
     url = 'https://btdb.eu/'
     name = 'Btdb.eu'
 
-    def search(self, what):
+    def search(what):
         name = []
         desc_link = []
         size = []
@@ -14,8 +16,9 @@ class btdb_eu():
         leech = []
         magnet = []
         torrent = []
+        fnl = {}
 
-        what.replace(" ", "%20")
+        what = what.replace(" ", "%20").strip("%20")
         url = "https://btdb.eu/search/"+what+"/0/?sort=popular"
 
         user_agent_list = [
@@ -62,6 +65,20 @@ class btdb_eu():
                     "Torrent Link Not Downloadable.Check for Magnet Link.")
             else:
                 torrent.append(str(item.get("href")))
+        lst = []
+        for i in range(len(name)):
+            temp = {
+                "title": name[i],
+                "size": size[i],
+                "seeds": seeds[i],
+                "leeches": leech[i],
+                "magnet": magnet[i],
+                "torrent": torrent[i],
+                "desc_link": desc_link[i]
+            }
+            lst.append(temp)
 
-        final = [name, desc_link, size, seeds, leech, magnet, torrent]
-        return final
+        fnl = lst
+
+        return fnl
+
