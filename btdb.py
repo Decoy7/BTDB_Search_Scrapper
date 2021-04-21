@@ -1,7 +1,6 @@
 from requests import get
 from random import choice
 from bs4 import BeautifulSoup
-import json
 
 
 class btdb_eu():
