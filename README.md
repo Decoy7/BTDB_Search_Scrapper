@@ -1,4 +1,4 @@
-# BTDB_API
+# BTDB_Search_API
 * Modules used
     * BeautifulSoup4
     * Requests
