@@ -15,6 +15,7 @@ class btdb_eu():
         leech = []
         magnet = []
         torrent = []
+        added = []
         fnl = {}
 
         what = what.replace(" ", "%20").strip("%20")
@@ -52,6 +53,7 @@ class btdb_eu():
                 size.append(str(alist[i]))
                 seeds.append(str(alist[i+2]))
                 leech.append(str(alist[i+3]))
+                added.append(str(alist[i+4]))
 
         # Get Magnet
         for item in soup.find_all("a", class_="btn btn-square btn-outline btn-success"):
@@ -64,6 +66,7 @@ class btdb_eu():
                     "Torrent Link Not Downloadable.Check for Magnet Link.")
             else:
                 torrent.append(str(item.get("href")))
+
         lst = []
         for i in range(len(name)):
             temp = {
@@ -73,7 +76,8 @@ class btdb_eu():
                 "leeches": leech[i],
                 "magnet": magnet[i],
                 "torrent": torrent[i],
-                "desc_link": desc_link[i]
+                "desc_link": desc_link[i],
+                "added": added[i]
             }
             lst.append(temp)
 
@@ -81,3 +85,6 @@ class btdb_eu():
 
         return fnl
 
+lol=btdb_eu.search("The Sims 3")
+for item in lol:
+    print(item)
