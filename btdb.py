@@ -84,7 +84,3 @@ class btdb_eu():
         fnl = lst
 
         return fnl
-
-lol=btdb_eu.search("The Sims 3")
-for item in lol:
-    print(item)
