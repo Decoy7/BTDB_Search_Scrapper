@@ -7,7 +7,7 @@ class btdb_eu():
     url = 'https://btdb.eu/'
     name = 'Btdb.eu'
 
-    def search(what):
+    def search(what,order_by):
         name = []
         desc_link = []
         size = []
@@ -18,21 +18,44 @@ class btdb_eu():
         added = []
         fnl = {}
 
-        what = what.replace(" ", "%20").strip("%20")
-        url = "https://btdb.eu/search/"+what+"/0/?sort=popular"
+
 
         user_agent_list = [
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15',
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:77.0) Gecko/20100101 Firefox/77.0',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36'
         ]
 
         user_agent = choice(user_agent_list)
         headers = {'User-Agent': user_agent}
 
-        result = get(url, headers=headers)
+        #Get top torrents of the day
+        if order_by.lower()=="top":
+            url = "https://btdb.eu/top"
+            result = get(url, headers=headers)
+        
+        #Order by size
+        elif order_by.lower=="length":
+            what = what.replace(" ", "%20").strip("%20")
+            url = "https://btdb.eu/search/"+what+"/0/?sort=length"
+            result = get(url, headers=headers)
+        
+        #Order by popular
+        elif order_by.lower=="popular":
+            what = what.replace(" ", "%20").strip("%20")
+            url = "https://btdb.eu/search/"+what+"/0/?sort=popular"
+            result = get(url, headers=headers)
+        
+        #Order by downloads
+        elif order_by.lower=="hits":
+            what = what.replace(" ", "%20").strip("%20")
+            url = "https://btdb.eu/search/"+what+"/0/?sort=hits"
+            result = get(url, headers=headers)
+
+        else:
+            exit("No category given.")
 
         soup = BeautifulSoup(result.text, 'lxml')
 
