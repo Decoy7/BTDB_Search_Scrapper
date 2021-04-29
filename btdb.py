@@ -33,22 +33,22 @@ class btdb_eu():
         what = what.replace(" ", "%20").strip("%20")
 
         #Get top torrents of the day
-        if order_by.lower()=="top":
+        if str(order_by.lower())=="top":
             url = "https://btdb.eu/top"
             result = get(url, headers=headers)
         
         #Order by size
-        elif order_by.lower=="length":
+        elif str(order_by.lower())=="length":
             url = "https://btdb.eu/search/"+what+"/0/?sort=length"
             result = get(url, headers=headers)
         
         #Order by popular
-        elif order_by.lower=="popular":
+        elif str(order_by.lower())=="popular":
             url = "https://btdb.eu/search/"+what+"/0/?sort=popular"
             result = get(url, headers=headers)
         
         #Order by downloads
-        elif order_by.lower=="hits":
+        elif str(order_by.lower())=="hits":
             url = "https://btdb.eu/search/"+what+"/0/?sort=hits"
             result = get(url, headers=headers)
 
