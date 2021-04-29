@@ -9,7 +9,7 @@
 ## Features
 - Enter a search term and get the results in json format.
 ## Json Structure
-   ```python:
+   ```json
 {
        "title": string,
        "size": string,
