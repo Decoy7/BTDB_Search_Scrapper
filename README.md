@@ -23,17 +23,17 @@
    ```
 ## Examples
 - Make the search and store the result.
-   ```python:
+   ```python
    from btdb import btdb_eu
    movies=btdb_eu.search("matrix",order_by="popular")
    ```
 - Go through all of the names one by one.
-   ```python:
+   ```python
    for i in range(len(movies)):
       print(movies[i]["title"])
    ```
 - Go through each size of each movie.
-   ```python:
+   ```python
    for i in range(len(movies)):
       print(movies[i]["size"])
    ```
