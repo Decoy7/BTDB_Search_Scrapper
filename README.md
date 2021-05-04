@@ -1,4 +1,4 @@
-# BTDB Search API
+# BTDB Search Scrapper
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 ## Modules Used
