@@ -29,11 +29,11 @@
    ```
 - Go through all of the names one by one.
    ```python
-   for i in range(len(movies)):
-      print(movies[i]["title"])
+   for movie in range(len(movies)):
+      print(movies[movie]["title"])
    ```
 - Go through each size of each movie.
    ```python
-   for i in range(len(movies)):
-      print(movies[i]["size"])
+   for movie in range(len(movies)):
+      print(movies[movie]["size"])
    ```
