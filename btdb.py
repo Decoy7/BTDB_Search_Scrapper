@@ -53,7 +53,7 @@ class btdb_eu():
             result = get(url, headers=headers)
 
         else:
-            exit("No category given.")
+            return ("No category given.")
 
         soup = BeautifulSoup(result.text, 'lxml')
 
