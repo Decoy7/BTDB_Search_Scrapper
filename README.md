@@ -22,6 +22,12 @@
 }
    ```
 ## Examples
+- Categories you can pass.
+   "top" to get the top torrents of the day
+   "length" to get by size (bigger in size first)
+   "popular" to get by popularity (most seeders and leechers first)
+   "hits" to get by times downloaded (most downloaded torrents first)
+
 - Make the search and store the result.
    ```python
    from btdb import btdb_eu
