@@ -1,5 +1,8 @@
+# NO LONGER WORKS CAUSE OF CLOUDFLARE PROTECTION
 # BTDB Search Scrapper
+<!---
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+-->
 
 ## Modules Used
   - BeautifulSoup4
